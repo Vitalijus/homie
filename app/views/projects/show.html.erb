@@ -27,7 +27,7 @@
   <% @project.comments.each do |comment| %>
     <div>
       <%= comment.content %> from user: <%= @project.user.email %><br>
-      Status: <%= @project.status %><br><br>
+      Status: <%= comment.project_status %><br><br>
     </div>
   <% end %>
 </div>
