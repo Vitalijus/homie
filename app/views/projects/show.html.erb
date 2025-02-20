@@ -6,5 +6,28 @@
   <%= link_to "Edit this project", edit_project_path(@project) %> |
   <%= link_to "Back to projects", projects_path %>
 
+  <br><br>
+
   <%= button_to "Destroy this project", @project, method: :delete %>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Leave a comment", new_comment_path(user_id: @project.user_id, project_id: @project.id) %>
+</div>
+
+<br>
+<br>
+
+<div>
+  <h3>Comments</h3>
+  <br>
+
+  <% @project.comments.each do |comment| %>
+    <div>
+      <%= comment.content %> from user: <%= @project.user.email %><br>
+      Status: <%= @project.status %><br><br>
+    </div>
+  <% end %>
 </div>
