@@ -3,8 +3,34 @@
 <%= render @project %>
 
 <div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
+  <% if current_user && current_user.id == @project.user_id %>
+    <%= link_to "Edit this project", edit_project_path(@project) %> |
+    <%= button_to "Destroy this project", @project, method: :delete %>
+  <% end %>
 
-  <%= button_to "Destroy this project", @project, method: :delete %>
+  <%= link_to "Back to projects", projects_path %>
+  <br><br>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Leave a comment", new_comment_path(user_id: current_user&.id, project_id: @project.id) %>
+</div>
+
+<br>
+<br>
+
+
+
+<div>
+  <h3>Comments</h3>
+  <br>
+
+  <% @project.comments.each do |comment| %>
+    <div>
+      <%= comment.content %> from user: <%= comment.user.email %><br>
+      Status: <%= comment.project_status %><br><br>
+    </div>
+  <% end %>
 </div>
