@@ -10,6 +10,6 @@ class Comment < ApplicationRecord
   private
 
   def set_project_status
-
+    self.project_status = project.status
   end
 end
