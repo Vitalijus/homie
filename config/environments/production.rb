@@ -89,5 +89,5 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   # In production, :host should be set to the actual host of your application.
-  config.action_mailer.default_url_options = { host: 'https://homie-06e57a433b33.herokuapp.com/', port: 3000 }
+  config.action_mailer.default_url_options = { host: "https://homie-06e57a433b33.herokuapp.com/", port: 3000 }
 end
